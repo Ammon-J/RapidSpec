@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using RapidSpec.Data;
 using RapidSpec.Models;
 
 namespace RapidSpec.Controllers
@@ -7,6 +8,7 @@ namespace RapidSpec.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
         public HomeController(ILogger<HomeController> logger)
         {
