@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RapidSpec.Models;
 
 namespace RapidSpec.Data
 {
@@ -9,5 +10,7 @@ namespace RapidSpec.Data
             : base(options)
         {
         }
+
+        public DbSet<VehicleData> VehicleData { get; set; } = null!;
     }
 }

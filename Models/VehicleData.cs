@@ -2,7 +2,7 @@
 
 namespace RapidSpec.Models
 {
-    public class VehicleDataEntity
+    public class VehicleData
     {
         [Key]
         public int Id { get; set; }
