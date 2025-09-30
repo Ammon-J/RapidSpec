@@ -11,6 +11,5 @@ namespace RapidSpec.Data
         {
         }
 
-        public DbSet<VehicleData> VehicleData { get; set; } = null!;
     }
 }

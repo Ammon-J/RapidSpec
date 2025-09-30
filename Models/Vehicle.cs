@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 namespace RapidSpec.Models
 {
-    public class VehicleData
+    public class Vehicle
     {
         [Key]
         public int Id { get; set; }
@@ -11,6 +12,6 @@ namespace RapidSpec.Models
         public int Year { get; set; }
         public string EngineName { get; set; }
         public string EngineType { get; set; }
-        public decimal Price { get; set; }
+        public float Price { get; set; }
     }
 }

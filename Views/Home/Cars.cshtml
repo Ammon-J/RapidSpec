@@ -1,0 +1,44 @@
+﻿@model List<RapidSpec.Models.VehicleDataViewModel>
+@{
+    ViewData["Title"] = "Cars";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form>
+    <table class="table table-responsive table-hover">
+        <button asp-action="Create" asp-controller="Vehicle" class="btn btn-group-shadow-sm btn-success">Add Vehicle</button>
+        <thead>
+            <tr class="table-active">
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>EngineName</th>
+                <th>EngineType</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var vehicle in Model)                    
+                {
+                    <tr>
+                        <td>@vehicle.Make</td>
+                        <td>@vehicle.Model</td>
+                        <td>@vehicle.Year</td>
+                        <td>@vehicle.EngineName</td>
+                        <td>@vehicle.EngineType</td>
+                        <td>@vehicle.Price</td>
+                        <td>
+                            <div class="btn-group btn-btn-group-sm">
+                                <a asp-controller="Vehicle" asp-action="Edit" asp-asp-route="@vehicle.Id" class="btn-primary">Edit</a>
+                                <a asp-controller="Vehicle" asp-action="Delete" asp-asp-route="@vehicle.Id" class="btn-danger">Delete</a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</form>
