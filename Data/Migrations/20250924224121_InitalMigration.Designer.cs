@@ -227,7 +227,7 @@ namespace RapidSpec.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RapidSpec.Models.VehicleData", b =>
+            modelBuilder.Entity("RapidSpec.Models.Vehicle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -259,7 +259,7 @@ namespace RapidSpec.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("VehicleData");
+                    b.ToTable("Vehicle");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
