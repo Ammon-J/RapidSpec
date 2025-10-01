@@ -39,5 +39,24 @@ namespace RapidSpec.Controllers
             }
             return View(vehicles);
         }
+
+        public IActionResult AddVehicle()
+        {
+            return View();
+        }
+
+        
+        public IActionResult OnSubmitAddVehicle(Vehicle car)
+        {
+            if (car.Model != null)
+            {
+                CrudVehicleDatabase.AddVehicle(car);
+                return RedirectToAction("Cars");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }
