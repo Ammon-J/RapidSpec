@@ -15,6 +15,7 @@
                 <th>EngineName</th>
                 <th>EngineType</th>
                 <th>Price</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +32,7 @@
                         <td>@vehicle.Price</td>
                         <td>
                             <div class="btn-group btn-btn-group-sm">
-                                <a asp-controller="Vehicle" asp-action="Edit" asp-asp-route="@vehicle.Id" class="btn btn-primary">Edit</a>
+                                <a asp-controller="Vehicle" asp-action="EditVehicle" asp-route-id="@vehicle.Id" class="btn btn-primary">Edit</a>
                                 <a asp-controller="Vehicle" asp-action="Delete" asp-asp-route="@vehicle.Id" class="btn btn-danger">Delete</a>
 
                             </div>

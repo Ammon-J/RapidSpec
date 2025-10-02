@@ -58,5 +58,37 @@ namespace RapidSpec.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public IActionResult EditVehicle(int id)
+        {
+            Vehicle curCar = CrudVehicleDatabase.GetVehicle(id);
+            return View(curCar);
+        }
+
+        [HttpPost]
+        public IActionResult EditVehicle(Vehicle currCar)
+        {
+            bool success = false;
+            if (currCar.Model != null)
+            {
+                success = CrudVehicleDatabase.EditVehicle(currCar);
+
+                if (success) 
+                {
+                    return RedirectToAction("Cars");
+                }
+
+                else
+                {
+                    return View();
+                }
+            }
+
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
