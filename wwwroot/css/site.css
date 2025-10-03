@@ -18,7 +18,20 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    color: white;
+    margin-bottom: 0px;
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    margin: 0%;
+    background-image: url(/Photos/dashboard.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    backdrop-filter: brightness(50%);
+}
+
+main {
+    backdrop-filter: blur(8px);
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
