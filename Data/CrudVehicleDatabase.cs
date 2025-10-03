@@ -118,5 +118,30 @@ namespace RapidSpec.Data
             }
             return true;
         }
+
+        public static bool DeleteVehicle(int id)
+        {
+            SqlConnection connection = DbHelper.GetConnection();
+            string deleteStatement =
+                "DELETE FROM VehicleSpecs " +
+                "WHERE Id = @ID";
+            SqlCommand deleteCommand =
+                new SqlCommand(deleteStatement, connection);
+            deleteCommand.Parameters.AddWithValue("@ID", id);
+            try
+            {
+                connection.Open();
+                deleteCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return true;
+        }
     }
 }

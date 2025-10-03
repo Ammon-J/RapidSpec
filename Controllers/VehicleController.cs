@@ -90,5 +90,34 @@ namespace RapidSpec.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public IActionResult DeleteVehicle(int id)
+        {
+            Vehicle currCar = CrudVehicleDatabase.GetVehicle(id);
+
+            if (currCar != null)
+            {
+                return View(currCar);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult DeleteVehicle(Vehicle car)
+        {
+            bool success = CrudVehicleDatabase.DeleteVehicle(car.Id);
+
+            if (success)
+            {
+                return RedirectToAction("Cars");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }
