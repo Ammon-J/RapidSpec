@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RapidSpec.Data;
 using RapidSpec.Models;
 
@@ -14,6 +15,7 @@ namespace RapidSpec.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Cars()
         {
             var vehicles = _context.VehicleSpecs.ToList();
@@ -40,12 +42,14 @@ namespace RapidSpec.Controllers
             return View(vehicles);
         }
 
+        [HttpGet]
+        [Authorize]
         public IActionResult AddVehicle()
         {
             return View();
         }
 
-        
+        [Authorize]
         public IActionResult OnSubmitAddVehicle(Vehicle car)
         {
             if (car.Model != null)
@@ -60,6 +64,7 @@ namespace RapidSpec.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult EditVehicle(int id)
         {
             Vehicle curCar = CrudVehicleDatabase.GetVehicle(id);
@@ -67,6 +72,7 @@ namespace RapidSpec.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult EditVehicle(Vehicle currCar)
         {
             bool success = false;
@@ -91,6 +97,7 @@ namespace RapidSpec.Controllers
             }
         }
 
+        [Authorize]
         public IActionResult DeleteVehicle(int id)
         {
             Vehicle currCar = CrudVehicleDatabase.GetVehicle(id);
@@ -106,6 +113,7 @@ namespace RapidSpec.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult DeleteVehicle(Vehicle car)
         {
             bool success = CrudVehicleDatabase.DeleteVehicle(car.Id);
